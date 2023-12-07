@@ -12,7 +12,7 @@ RUN mvn dependency:purge-local-repository
 
 RUN mvn clean install
 
-FROM openjdk:17-jdk-slim
+FROM openjdk:17-jdk-slim as runtime
 
 EXPOSE 8080
 
