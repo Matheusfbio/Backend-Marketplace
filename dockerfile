@@ -1,22 +1,18 @@
 FROM ubuntu:latest AS build
-FROM maven:3-jdk-17 as builder
-
-RUN apt-get update
-RUN apt-get install openjdk-17-jdk -y as runtime
+FROM maven:3-jdk-17 AS build
 
 COPY . .
 
-RUN apt-get install maven -y
-
-RUN mvn dependency:purge-local-repository
-
 RUN mvn clean install
 
-FROM openjdk:17-jdk-slim as runtime
+RUN apt-get install maven -y
 
-EXPOSE 8080
+FROM openjdk:17-jdk-slim 
+
 
 COPY --from=build /target/marketplace-1.0.0.jar app.jar
+
+EXPOSE 8080
 
 ENTRYPOINT [ "java", "-jar", "app.jar" ]
 
