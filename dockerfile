@@ -1,6 +1,8 @@
 FROM ubuntu:latest AS build
 
-FROM maven:3.9.5-jdk-17 AS build
+FROM maven:3.9.5-jdk-17 as build
+
+WORKDIR /app
 
 COPY . .
 
@@ -10,6 +12,7 @@ RUN apt-get install maven -y
 
 FROM openjdk:17-jdk-slim 
 
+WORKDIR /app
 
 COPY --from=build /target/marketplace-1.0.0.jar app.jar
 
