@@ -1,5 +1,6 @@
 FROM ubuntu:latest AS build
-FROM maven:3-jdk-17 AS build
+
+FROM maven:3.9.5-jdk-17 AS build
 
 COPY . .
 
