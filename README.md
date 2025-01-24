@@ -1,6 +1,6 @@
 ## Marketplace
 
-This is a Spring Boot project for the purpose of creating a spring boot backend of Marketplace for studies.
+This is a Spring Boot project for the purpose of creating a spring boot backend of Marketplace.
 
 ## Before you begin, ensure you have met the following requirements:
 
